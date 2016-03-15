@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <h1>Add</h1>
+    <div id="uploader"></div>
+{% endblock %}
+
+
+{% block js %}
+        {{ super() }}
+        <script type="text/javascript" src="{{url_for('static', filename='add.bundle.js')}}"></script>
+        <script type="text/javascript">
+        </script>
+{% endblock %}

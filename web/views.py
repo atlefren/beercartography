@@ -62,6 +62,7 @@ def upload_file():
         file = request.files['file']
         if file and allowed_file(file.filename):
             filename = '%s%s' % (str(uuid.uuid1()), mimetypes.guess_extension(file.mimetype, strict=False))
+            print filename
             save_file(file.stream, filename, file.mimetype)
             image = Image()
 
@@ -72,13 +73,4 @@ def upload_file():
             current_app.db_session.add(image)
             current_app.db_session.commit()
 
-
-    return '''
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form action="" method=post enctype=multipart/form-data>
-      <p><input type=file name=file>
-         <input type=submit value=Upload>
-    </form>
-    '''
+    return render_template('add.html')

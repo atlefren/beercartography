@@ -20,29 +20,19 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, 'web/static'),
-        filename: PROD ? '[name].bundle.min.js' : '[name].bundle.js'
+        filename: PROD ? '[name].bundle.min.js' : '[name].bundle.js',
+        publicPath: '/static/'
     },
     module: {
         loaders: [
             {
                 test: /\.css$/,
-                loader: 'style!css'},
-            {
-                test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'url?limit=10000&mimetype=application/font-woff'
+                loader: 'style!css'
             },
-            {
-                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'url?limit=10000&mimetype=application/octet-stream'
-            },
-            {
-                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file'
-            },
-            {
-                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'url?limit=10000&mimetype=image/svg+xml'
-            },
+            {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},
+            {test: /\.(woff|woff2)$/, loader: 'url?prefix=font/&limit=5000'},
+            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
+            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'},
             {
                 test: /.jsx?$/,
                 loader: 'babel-loader',

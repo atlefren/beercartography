@@ -1,4 +1,4 @@
+'use strict';
 var common = require('./common');
-require('expose?$!expose?jQuery!jquery');
-require('bootstrap-webpack');
+require('bootstrap/dist/css/bootstrap.css');
 require('../css/base.css');

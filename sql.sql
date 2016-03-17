@@ -1,0 +1,1 @@
+CREATE TABLE images (id serial PRIMARY KEY, name text, filename text, shape varchar(50), username text, mimetype varchar(100));

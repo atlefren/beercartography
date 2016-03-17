@@ -2,7 +2,7 @@
 
 {% block main %}
     <h1>Test</h1>
-    <div id="hello"></div>
+    <div id="image-list"></div>
 {% endblock %}
 
 
@@ -10,6 +10,7 @@
         {{ super() }}
         <script type="text/javascript" src="{{url_for('static', filename='index.bundle.js')}}"></script>
         <script type="text/javascript">
-            
+            var images = {{images | safe}};
+            renderImageList(images);
         </script>
 {% endblock %}
